@@ -1,8 +1,8 @@
-###  DATE: 
+###  DATE: 12.03.25
 
-###  NAME: 
-###  ROLL NO :
-###  DEPARTMENT: 
+###  NAME: JESU SMARTIA A
+###  ROLL NO :212223110016
+###  DEPARTMENT: CSE(IoT)
 
 
 # EXPERIMENT--02-INTERFACING-A-DIGITAL-INPUT-TO-IOT-DEVELOPMENT-BOARD-
@@ -74,14 +74,41 @@ The full form of an ARM is an advanced reduced instruction set computer (RISC) m
 
 17. check for execution of the output by switching the board to run mode 
 
-
-
 ## STM 32 CUBE PROGRAM :
+```
+#include"main.h"
+#include"stdbool.h"
+void IRsensor();
+bool IRsensorop;
 
+while (1)
+  {
+	  IRsensor();
+  void IRsensor()
+  {
+	  IRsensorop=HAL_GPIO_ReadPin(GPIOB,GPIO_PIN_3);
+	  if(IRsensorop==1)
+	  {
+		  HAL_GPIO_WritePin(GPIOA,GPIO_PIN_0,GPIO_PIN_SET);
+		  HAL_Delay(500);
+		  HAL_GPIO_WritePin(GPIOA,GPIO_PIN_0,GPIO_PIN_RESET);
+		  HAL_Delay(500);
+	  }
+	  else{
+		  HAL_GPIO_WritePin(GPIOA,GPIO_PIN_0,GPIO_PIN_RESET);
+		  HAL_Delay(500);
+	  }
+  }
+```
 
 
 ## Output  :
- 
+
+
+ ![output1](https://github.com/user-attachments/assets/d2a8665b-12e5-4ac5-a317-f6754bfc7cad)
+
+![output2](https://github.com/user-attachments/assets/e0b81b57-88a9-484c-bd38-a1f83d53f7f6)
+
  
  
  
